@@ -16,6 +16,7 @@ import VideoListItem from './VideoListItem';
 export default {
     name: 'VideoList',
     components: {
+        // Tell component it has access to child component
         VideoListItem
     },
     props: {

@@ -1,5 +1,6 @@
 <template>
     <li class="list-group-item media" @click="onVideoSelect">
+        <!--Can also pass prop to a regular HTML element.-->
         <img class="mr-3" :src="thumbnailUrl" />
         <div class="media-body">
             {{ video.snippet.title }}

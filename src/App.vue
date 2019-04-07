@@ -1,5 +1,8 @@
 <template>
     <div class="container">
+    <!-- @ = v-on 
+         : = v-bind. Passing props down to child component   
+    -->
         <SearchBar @termChange="onTermChange"/>
         <VideoDetail :video="selectedVideo" />
         <VideoList @videoSelect="onVideoSelect" :videos="videos"></VideoList>
@@ -12,16 +15,18 @@ import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
 import VideoDetail from './components/VideoDetail';
-const API_KEY = 'AIzaSyDWFgIS4_rZ6k4878WXAvoOlS8AQMLZZ24';
+const API_KEY = 'AIzaSyDwarhGVRxeByF9PsXKrHs8L3XO_VhN1HI';
 
 export default {
     name: 'App',
     components: {
+        // Tell component it has access to child component
         SearchBar,
         VideoList,
         VideoDetail
     },
     data() {
+        // Vue component - data object must be function that returns an object.
         return { 
             videos: [],
             selectedVideo: null
@@ -37,6 +42,7 @@ export default {
                     q: searchTerm
                 }
             }).then(response => {
+                // No need to go data.videos. Directly access properties within data object
                 this.videos = response.data.items
             });
         },
